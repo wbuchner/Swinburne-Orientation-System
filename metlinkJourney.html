@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><link rel="stylesheet" type="text/css" href="http://www.swinburne.edu.au/import/import.css" />
+<link rel="stylesheet" type="text/css" href="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/calendar_resources/calendar_theme.css" />
+	<link rel="stylesheet" type="text/css" href="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/calendar_resources/calendar_classesfix.css" />
+	<script type="text/javascript" src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/calendar_resources/calendar.js"></script>
+	<script type="text/javascript" src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/calendar_resources/calendar-en.js"></script>
+	<script type="text/javascript" src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/calendar_resources/calendar-setup.js"></script>
+	<script type="text/javascript" src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/calendar_resources/calendar-metlink.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/ml_journey_planner.css" />
+	<script type="text/javascript" src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/ml_journey_planner_deakin.js"></script>
+</head><body>
+    <div id="jpp">
+<!-- @programmer: Adam Alexander Ford
+     @updated by: Adam Alexander Ford 2008-01-18
+	 @email: tech101 [@t] gmail [d0+] com
+	 @organisation: Metlink Melbourne -->
+<form id="tripRequest" action="" method="get">
+	<div class="inset_header" style="height:inherit; width:280px;"> <!-- inset_header -->
+		<b class="b1"></b>
+
+		<b class="b2"></b>
+		<b class="b3"></b>
+		<b class="b4"></b>
+		<div class="boxcontent">
+			<span style="position:relative; top: -3px;right: 2px">Journey Planner</span>
+			<span style="position:relative; top: -3px;right: -19px">
+				<img src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/metlink_gray_gradient.png" alt="Metlink" style="align:right" />
+			</span>
+
+			<!-- no ending box curves -->
+		</div><!-- end boxcontent -->
+	</div><!-- end inset_header -->
+	<div class="inset" style="height:inherit; width:280px;" > <!-- inset -->
+		<div class="boxcontent" style="text-align:left" > <!-- begin 2nd boxcontent -->
+			<!-- no beginning box curves -->
+			<table>
+				<tr>
+
+					<td colspan="2">Travel by public transport</td>
+				</tr>
+				<tr>
+					<td colspan="2">I want to go:</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="radio" id="radio_to" name="radio_direction" value="to" checked="checked" onClick="jp_change_direction()" />
+
+					</td>
+					<td>
+						<strong style="font-size:11px">To Uni:</strong>
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input type="radio" id="radio_from" name="radio_direction" value="from" onClick="jp_change_direction()" />					
+					</td>
+
+					<td>
+						<strong style="font-size:11px">From Uni:</strong>
+					</td>
+				</tr>
+				<tr>
+					<td align="left">
+						<div id="span_direction_2_to" style="display:block">To</div>
+						<div id="span_direction_2_from" style="display:none">From</div>
+
+					</td>
+					<td>
+						<select name="name_destination" id="name_destination" style="width:130px;">
+                          <option value="Swinburne University Of Technology (Hawthorn)">Hawthorn Campus </option>
+    						<option value="Swinburne TAFE (Croydon Campus) (Croydon)">Croydon Campus</option>
+                          	
+    						<option value="Swinburne TAFE (Healesville Campus) (Healesville)">Healesville Campus </option>	
+                            <option value="Swinburne University of Technology (Lilydale)">Lilydale Campus </option>
+							<option value="Swinburne University of Technology (Prahran)">Prahran Campus </option>
+
+							<option value="Swinburne TAFE (Wantirna Campus) (Wantirna South)">Wantirna Campus</option>
+						</select>
+					</td>
+				</tr>
+				<tr valign="top">
+					<td width="30">
+						<div id="span_direction_1_to" style="display:none">To</div>
+						<div id="span_direction_1_from" style="display:block">From</div>
+
+					</td>
+    				<td width="115">
+						<input name="name_origin" id="name_origin" value="Enter an Address" onFocus="javascript:if(this.value == 'Enter an Address') this.value='';" onBlur="this.value = this.value.replace(/^\s*|\s*$/g, ''); "/>
+						<select name="anyObjFilter_destination" id="anyObjFilter_destination">
+							<option value="29">Address</option>
+							<option value="2">Station/Stop</option>
+							<option value="32">Landmark</option>
+
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						Day&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Month/Year&nbsp;&nbsp;&nbsp;<br />
+						<select name="itdDateDay" id="itdDateDay" onChange="/*changeDate();*/">
+       						<option id="date1" value="01">01</option>
+
+							<option id="date2" value="02">02</option>
+        					<option id="date3" value="03">03</option>
+							<option id="date4" value="04">04</option>
+        					<option id="date5" value="05">05</option>
+							<option id="date6" value="06">06</option>
+        					<option id="date7" value="07">07</option>
+
+							<option id="date8" value="08">08</option>
+        					<option id="date9" value="09">09</option>
+							<option id="date10" value="10">10</option>
+        					<option id="date11" value="11">11</option>
+							<option id="date12" value="12">12</option>
+        					<option id="date13" value="13">13</option>
+
+							<option id="date14" value="14">14</option>
+        					<option id="date15" value="15">15</option>
+							<option id="date16" value="16">16</option>
+							<option id="date17" value="17">17</option>
+							<option id="date18" value="18">18</option>
+							<option id="date19" value="19">19</option>
+
+							<option id="date20" value="20">20</option>
+							<option id="date21" value="21">21</option>
+							<option id="date22" value="22">22</option>
+							<option id="date23" value="23">23</option>
+							<option id="date24" value="24">24</option>
+							<option id="date25" value="25">25</option>
+
+							<option id="date26" value="26">26</option>
+							<option id="date27" value="27">27</option>
+							<option id="date28" value="28">28</option>
+							<option id="date29" value="29">29</option>
+							<option id="date30" value="30">30</option>
+        					<option id="date31" value="31">31</option>
+
+						</select>&nbsp;
+						<select name="itdDateYearMonth" id="itdDateYearMonth" onChange="/*changeDate();*/">
+                    		<script type="text/javascript">
+        						// Fill Month/Year combo
+        						var thisdate = new Date();
+       							var yr = thisdate.getFullYear();
+        						var mth = thisdate.getMonth();
+        						mth_pad = ((mth < 10) ? '0' + mth : mth) // pad month with zero where necessary
+       							var yearCnt=yr; //{def $yearCnt=$year}
+       							monthDisplayNo=mth+1;
+       							for (monthCnt=0;monthCnt<=11;monthCnt++) {
+          							mthDisp_pad = ((monthDisplayNo < 10) ? '0' + monthDisplayNo : monthDisplayNo);
+          							document.writeln('<option id="'+''+yearCnt+mthDisp_pad+'" value="'+''+yearCnt+mthDisp_pad+'">'+getMonthName(monthDisplayNo-1,"Short")+' '+yearCnt+'</option>');
+          							monthDisplayNo++;
+          							if (monthDisplayNo>12) { monthDisplayNo=1;yearCnt++; } // set month back to jan, and increment year by one
+      							}
+      						</script>
+						</select>&nbsp;<img src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/calendar_resources/ezdatetimeselect.gif" id="JPDatePicker" class="calendar" title="Date selector" alt="cal" onMouseOver="this.style.background='blue';" onMouseOut="this.style.background=''" style="cursor: pointer; position:relative; top: 1px; left:0px;" /><br />Hour
+           				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minute&nbsp;&nbsp;AM/PM<br />
+						<select name="itdTimeHour" id="itdTimeHour">
+  							<option id="hr1" value="1">1</option>
+
+							<option id="hr2" value="2">2</option>
+  							<option id="hr3" value="3">3</option>
+							<option id="hr4" value="4">4</option>
+  							<option id="hr5" value="5">5</option>
+							<option id="hr6" value="6">6</option>
+							<option id="hr7" value="7">7</option>
+
+							<option id="hr8" value="8">8</option>
+							<option id="hr9" value="9">9</option>
+							<option id="hr10" value="10">10</option>
+							<option id="hr11" value="11">11</option>
+							<option id="hr12" value="12">12</option>
+						</select>
+
+						<select name="itdTimeMinute" id="itdTimeMinute">
+						  	<option id="min0" value="0">00</option>
+							<option id="min5" value="5">05</option>
+						  	<option id="min10" value="10">10</option>
+							<option id="min15" value="15">15</option>
+						  	<option id="min20" value="20">20</option>
+
+							<option id="min25" value="25">25</option>
+						  	<option id="min30" value="30">30</option>
+							<option id="min35" value="35">35</option>
+						  	<option id="min40" value="40">40</option>
+							<option id="min45" value="45">45</option>
+						  	<option id="min50" value="50">50</option>
+
+							<option id="min55" value="55">55</option>
+						</select>
+						<select name="itdTimeAMPM" id="itdTimeAMPM">
+  							<option value="am">AM</option>
+							<option value="pm" >PM</option>
+						</select><br />
+					</td>
+
+				</tr>
+				<tr>
+					<td style="height:25px; text-align:center" colspan="2">
+						<input type="button" name="button_jp" id="button_jp" onClick="jp_navigate();"  value="Plan My Journey" />
+						<input type="hidden" name="hidden_url_jp" id="hidden_url_jp" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:center">
+
+						<a class="tooltip" href="http://jp.metlinkmelbourne.com.au/metlink/XSLT_TRIP_REQUEST2?language=en&itdLPxx_view=advanced" id="link_jp"  style="font-size:10px" target="_blank">More Options<b style="width:90px">Advanced Journey Planner Options</b></a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center" style="height:55px;"><img src="http://www.metlinkmelbourne.com.au/application/jp_tile/jp_resources/train_tram_bus.png" alt="train, tram, bus logo" /></td>
+				</tr>
+			</table>
+		</div> <!-- end 2nd boxcontent -->
+
+		<b class="b4b"></b>
+		<b class="b3b"></b>
+		<b class="b2b"></b>
+		<b class="b1b"></b>
+	</div><!-- end inset -->
+	<input type="hidden" id="calDate" name="calDate" value="" />
+</form><!-- end tripRequest -->
+<script type="text/javascript"><!--
+func_init();
+/// existing js stuff
+var year=yr;
+var endYear=yr+1;
+var month=mth;
+var range=new Array(year, endYear);
+
+Calendar.setup(
+{
+    ifFormat: "%Y-%m-%d",
+    button : "JPDatePicker",
+    inputField: "calDate",
+    range: range,
+    dateStatusFunc: disallowDate,
+    weekNumbers: false,
+    onSelect:onSelect,
+    cache: true
+}
+);
+//--></script>
+</div> <!-- end jpp -->
+
+<!-- end jp -->
+</div></li>
+
+
+      
+</body>
+</html>
